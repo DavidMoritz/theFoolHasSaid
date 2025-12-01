@@ -20,6 +20,57 @@ const components = {
         </div>
       )
     },
+    video: ({ value }: any) => {
+      if (!value?.url) return null
+
+      const url = value.url
+      let embedUrl = url
+
+      // Convert YouTube URLs to embed format
+      if (url.includes('youtube.com/watch?v=')) {
+        const videoId = url.split('v=')[1]?.split('&')[0]
+        embedUrl = `https://www.youtube.com/embed/${videoId}`
+      } else if (url.includes('youtu.be/')) {
+        const videoId = url.split('youtu.be/')[1]?.split('?')[0]
+        embedUrl = `https://www.youtube.com/embed/${videoId}`
+      } else if (url.includes('youtube.com/shorts/')) {
+        const videoId = url.split('shorts/')[1]?.split('?')[0]
+        embedUrl = `https://www.youtube.com/embed/${videoId}`
+      } else if (url.includes('vimeo.com/')) {
+        const videoId = url.split('vimeo.com/')[1]?.split('?')[0]
+        embedUrl = `https://player.vimeo.com/video/${videoId}`
+      }
+
+      // Check if it's an embeddable URL (YouTube/Vimeo)
+      const isEmbed = embedUrl !== url
+
+      return (
+        <div className="my-8">
+          {isEmbed ? (
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                src={embedUrl}
+                className="absolute top-0 left-0 w-full h-full rounded-lg"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          ) : (
+            <video
+              src={url}
+              controls
+              className="w-full rounded-lg"
+              preload="metadata"
+            >
+              Your browser does not support the video tag.
+            </video>
+          )}
+          {value.caption && (
+            <p className="text-sm text-gray-600 text-center mt-2 italic">{value.caption}</p>
+          )}
+        </div>
+      )
+    },
   },
   block: {
     h1: ({ children }: any) => (

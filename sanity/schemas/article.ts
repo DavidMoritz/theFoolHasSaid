@@ -101,6 +101,41 @@ export default defineType({
           type: 'image',
           options: { hotspot: true },
         },
+        {
+          type: 'object',
+          name: 'video',
+          title: 'Video',
+          fields: [
+            {
+              name: 'url',
+              type: 'url',
+              title: 'Video URL',
+              description: 'YouTube, Vimeo, or direct video file URL',
+              validation: (Rule) =>
+                Rule.uri({
+                  scheme: ['http', 'https'],
+                }),
+            },
+            {
+              name: 'caption',
+              type: 'string',
+              title: 'Caption',
+              description: 'Optional caption for the video',
+            },
+          ],
+          preview: {
+            select: {
+              url: 'url',
+              caption: 'caption',
+            },
+            prepare({ url, caption }) {
+              return {
+                title: caption || 'Video',
+                subtitle: url,
+              }
+            },
+          },
+        },
       ],
     }),
     defineField({
