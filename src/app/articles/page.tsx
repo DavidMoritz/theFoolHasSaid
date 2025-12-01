@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { client } from '@/lib/sanity'
+import Image from 'next/image'
+import { client, urlFor } from '@/lib/sanity'
 import { Article } from '@/types/sanity'
 
 async function getAllArticles() {
@@ -9,6 +10,7 @@ async function getAllArticles() {
     slug,
     excerpt,
     publishedAt,
+    mainImage,
     author->{
       name
     },
@@ -41,48 +43,61 @@ export default async function ArticlesPage() {
           <div className="space-y-8">
             {articles.map((article) => (
               <article key={article._id} className="border-b border-gray-200 pb-8">
-                <Link href={`/articles/${article.slug.current}`}>
-                  <h2 className="text-2xl font-bold mb-2 text-gray-900 hover:text-blue-600 transition-colors">
-                    {article.title}
-                  </h2>
-                </Link>
-
-                {article.excerpt && (
-                  <p className="text-gray-600 mb-4">{article.excerpt}</p>
-                )}
-
-                <div className="flex items-center gap-4 text-sm text-gray-500">
-                  <span>By {article.author.name}</span>
-                  <span>•</span>
-                  <time dateTime={article.publishedAt}>
-                    {new Date(article.publishedAt).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
-                  </time>
-                  {article.categories && article.categories.length > 0 && (
-                    <>
-                      <span>•</span>
-                      <div className="flex gap-2">
-                        {article.categories.map((category) => (
-                          <span
-                            key={category._id}
-                            className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs"
-                          >
-                            {category.title}
-                          </span>
-                        ))}
-                      </div>
-                    </>
-                  )}
-                </div>
-
                 <Link
                   href={`/articles/${article.slug.current}`}
-                  className="inline-block mt-4 text-blue-600 hover:text-blue-700 font-semibold"
+                  className="flex flex-col md:flex-row gap-6 group"
                 >
-                  Read More →
+                  {article.mainImage && (
+                    <div className="relative w-full md:w-64 h-48 flex-shrink-0 rounded-lg overflow-hidden">
+                      <Image
+                        src={urlFor(article.mainImage).width(400).height(300).url()}
+                        alt={article.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                  )}
+
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-bold mb-2 text-gray-900 group-hover:text-blue-600 transition-colors">
+                      {article.title}
+                    </h2>
+
+                    {article.excerpt && (
+                      <p className="text-gray-600 mb-4">{article.excerpt}</p>
+                    )}
+
+                    <div className="flex items-center gap-4 text-sm text-gray-500">
+                      <span>By {article.author.name}</span>
+                      <span>•</span>
+                      <time dateTime={article.publishedAt}>
+                        {new Date(article.publishedAt).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric',
+                        })}
+                      </time>
+                      {article.categories && article.categories.length > 0 && (
+                        <>
+                          <span>•</span>
+                          <div className="flex gap-2">
+                            {article.categories.map((category) => (
+                              <span
+                                key={category._id}
+                                className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs"
+                              >
+                                {category.title}
+                              </span>
+                            ))}
+                          </div>
+                        </>
+                      )}
+                    </div>
+
+                    <div className="inline-block mt-4 text-blue-600 group-hover:text-blue-700 font-semibold">
+                      Read More →
+                    </div>
+                  </div>
                 </Link>
               </article>
             ))}

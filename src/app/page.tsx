@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { client } from '@/lib/sanity'
+import Image from 'next/image'
+import { client, urlFor } from '@/lib/sanity'
 import { Article } from '@/types/sanity'
 
 async function getFeaturedArticles() {
@@ -35,6 +36,7 @@ async function getRecentArticles() {
     slug,
     excerpt,
     publishedAt,
+    mainImage,
     author->{
       name
     }
@@ -98,7 +100,14 @@ export default async function Home() {
                   className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow"
                 >
                   {article.mainImage && (
-                    <div className="h-48 bg-gray-200"></div>
+                    <div className="relative h-48 w-full">
+                      <Image
+                        src={urlFor(article.mainImage).width(600).height(400).url()}
+                        alt={article.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
                   )}
                   <div className="p-6">
                     <h3 className="text-xl font-bold mb-2 text-gray-900 hover:text-blue-600">
@@ -134,16 +143,28 @@ export default async function Home() {
                 <Link
                   key={article._id}
                   href={`/articles/${article.slug.current}`}
-                  className="border border-gray-200 rounded-lg p-6 hover:border-blue-300 hover:shadow-md transition-all"
+                  className="border border-gray-200 rounded-lg overflow-hidden hover:border-blue-300 hover:shadow-md transition-all flex flex-col md:flex-row"
                 >
-                  <h3 className="text-xl font-semibold mb-2 text-gray-900 hover:text-blue-600">
-                    {article.title}
-                  </h3>
-                  {article.excerpt && (
-                    <p className="text-gray-600 mb-3 line-clamp-2">{article.excerpt}</p>
+                  {article.mainImage && (
+                    <div className="relative w-full md:w-48 h-48 flex-shrink-0">
+                      <Image
+                        src={urlFor(article.mainImage).width(400).height(400).url()}
+                        alt={article.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
                   )}
-                  <div className="text-sm text-gray-500">
-                    By {article.author.name} • {new Date(article.publishedAt).toLocaleDateString()}
+                  <div className="p-6 flex-1">
+                    <h3 className="text-xl font-semibold mb-2 text-gray-900 hover:text-blue-600">
+                      {article.title}
+                    </h3>
+                    {article.excerpt && (
+                      <p className="text-gray-600 mb-3 line-clamp-2">{article.excerpt}</p>
+                    )}
+                    <div className="text-sm text-gray-500">
+                      By {article.author.name} • {new Date(article.publishedAt).toLocaleDateString()}
+                    </div>
                   </div>
                 </Link>
               ))}
