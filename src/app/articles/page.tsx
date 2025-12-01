@@ -32,12 +32,13 @@ export default async function ArticlesPage() {
   const articles = await getAllArticles()
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-4 text-gray-900">Articles</h1>
-        <p className="text-lg text-gray-600 mb-12">
-          Exploring the evidence for intelligent design and examining evolutionary claims through science and reason.
-        </p>
+    <div className="bg-gray-50 min-h-screen">
+      <div className="container mx-auto px-4 py-12">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl font-bold mb-4 text-gray-900">Articles</h1>
+          <p className="text-lg text-gray-600 mb-12">
+            Exploring the evidence for intelligent design and examining evolutionary claims through science and reason.
+          </p>
 
         {articles.length > 0 ? (
           <div className="space-y-8">
@@ -114,6 +115,7 @@ export default async function ArticlesPage() {
             </p>
           </div>
         )}
+        </div>
       </div>
     </div>
   )

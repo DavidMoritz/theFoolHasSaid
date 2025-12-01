@@ -27,12 +27,13 @@ export default async function QuizzesPage() {
   const quizzes = await getAllQuizzes()
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-4 text-gray-900">Quizzes</h1>
-        <p className="text-lg text-gray-600 mb-12">
-          Test your knowledge of intelligent design, creation science, and the critique of evolutionary theory.
-        </p>
+    <div className="bg-gray-50 min-h-screen">
+      <div className="container mx-auto px-4 py-12">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl font-bold mb-4 text-gray-900">Quizzes</h1>
+          <p className="text-lg text-gray-600 mb-12">
+            Test your knowledge of intelligent design, creation science, and the critique of evolutionary theory.
+          </p>
 
         {quizzes.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -86,6 +87,7 @@ export default async function QuizzesPage() {
             </p>
           </div>
         )}
+        </div>
       </div>
     </div>
   )
