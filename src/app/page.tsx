@@ -60,7 +60,7 @@ export default async function Home() {
       <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">The Fool Has Said</h1>
+            <h1 className="text-5xl font-bold mb-6">The Fool Says</h1>
             <p className="text-xl mb-4 text-blue-100">
               "The fool says in his heart, 'There is no God.'" - Psalm 14:1
             </p>

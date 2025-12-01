@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'About | The Fool Has Said',
+  title: 'About | The Fool Says',
   description: 'Learn about our mission to present the evidence for intelligent design and examine evolutionary theory.',
 }
 
@@ -10,7 +10,7 @@ export default function AboutPage() {
     <div className="bg-white">
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl font-bold mb-6 text-gray-900">About The Fool Has Said</h1>
+          <h1 className="text-4xl font-bold mb-6 text-gray-900">About The Fool Says</h1>
 
           <div className="prose prose-lg max-w-none">
             <div className="mb-8">

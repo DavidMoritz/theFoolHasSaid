@@ -24,7 +24,7 @@ npx sanity init --env
 Follow the prompts:
 - **Login**: Use the account you just created
 - **Create new project**: Yes
-- **Project name**: "The Fool Has Said" (or your preferred name)
+- **Project name**: "The Fool Says" (or your preferred name)
 - **Use default dataset configuration?**: Yes
 - **Project output path**: Just press Enter (use default)
 - **Select project template**: Choose "Clean project"
@@ -74,7 +74,7 @@ The comment system uses GitHub Discussions. This is optional - the site works fi
 ### 2b. Configure Giscus
 
 1. Visit [giscus.app](https://giscus.app/)
-2. Enter your repository name (e.g., `yourusername/thefoolhassaid`)
+2. Enter your repository name (e.g., `yourusername/thefoolsays`)
 3. Scroll through the configuration:
    - **Page ↔ Discussions Mapping**: Choose "pathname"
    - **Discussion Category**: Choose "General" or create a new category
@@ -86,7 +86,7 @@ The comment system uses GitHub Discussions. This is optional - the site works fi
 In `.env.local`, update these values with what you got from Giscus:
 
 ```env
-NEXT_PUBLIC_GISCUS_REPO=yourusername/thefoolhassaid
+NEXT_PUBLIC_GISCUS_REPO=yourusername/thefoolsays
 NEXT_PUBLIC_GISCUS_REPO_ID=R_kgDOxxxxxx
 NEXT_PUBLIC_GISCUS_CATEGORY=General
 NEXT_PUBLIC_GISCUS_CATEGORY_ID=DIC_kwDOxxxxxx
@@ -145,10 +145,10 @@ If you haven't already:
 # Initialize git (if not already done)
 git init
 git add .
-git commit -m "Initial commit - The Fool Has Said website"
+git commit -m "Initial commit - The Fool Says website"
 
 # Create a new repository on GitHub, then:
-git remote add origin https://github.com/yourusername/thefoolhassaid.git
+git remote add origin https://github.com/yourusername/thefoolsays.git
 git branch -M main
 git push -u origin main
 ```
@@ -174,7 +174,7 @@ Wait 2-3 minutes for deployment to complete!
 
 1. In Vercel dashboard, go to your project
 2. Click **Settings** → **Domains**
-3. Add `thefoolhassaid.com`
+3. Add `thefoolsays.com`
 4. Vercel will show you DNS records to add
 5. Go to GoDaddy:
    - Sign in to your GoDaddy account
@@ -183,7 +183,7 @@ Wait 2-3 minutes for deployment to complete!
    - Add the DNS records Vercel gave you
 6. Wait 24-48 hours for DNS to propagate
 
-Your site will be live at **https://thefoolhassaid.com**!
+Your site will be live at **https://thefoolsays.com**!
 
 ---
 
@@ -196,8 +196,8 @@ Once deployed, you need to allow your production domain in Sanity:
 3. Click **API** in the left sidebar
 4. Under **CORS Origins**, click **Add CORS origin**
 5. Add your domains:
-   - `https://thefoolhassaid.com`
-   - `https://www.thefoolhassaid.com` (if using www)
+   - `https://thefoolsays.com`
+   - `https://www.thefoolsays.com` (if using www)
    - `http://localhost:3000` (for local development)
 6. Check **Allow credentials**
 7. Click **Save**

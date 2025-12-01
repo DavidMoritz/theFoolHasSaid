@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "The Fool Has Said - Intelligent Design Evidence",
+  title: "The Fool Says - Intelligent Design Evidence",
   description: "Exploring the evidence for intelligent design and examining the claims of evolutionary theory through scientific analysis and biblical wisdom.",
   keywords: ["intelligent design", "creation", "evolution", "science", "faith", "apologetics"],
 };

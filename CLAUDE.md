@@ -192,7 +192,7 @@ Common patterns for fetching content:
 ### Sanity CORS Configuration
 After deploying, add production domain to Sanity CORS origins:
 1. Go to sanity.io/manage → select project → API → CORS Origins
-2. Add production URLs (e.g., `https://thefoolhassaid.com`)
+2. Add production URLs (e.g., `https://thefoolsays.com`)
 3. Enable "Allow credentials"
 
 Without CORS configuration, Studio will fail to authenticate in production.

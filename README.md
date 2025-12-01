@@ -1,4 +1,4 @@
-# The Fool Has Said
+# The Fool Says
 
 A modern website built with Next.js and Sanity CMS to present evidence for intelligent design and examine evolutionary theory.
 
@@ -36,7 +36,7 @@ A modern website built with Next.js and Sanity CMS to present evidence for intel
 1. **Clone the repository**
    ```bash
    git clone <your-repo-url>
-   cd theFoolHasSaid
+   cd theFoolSays
    ```
 
 2. **Install dependencies**
@@ -86,7 +86,7 @@ To enable the Giscus comment system:
 1. Go to your GitHub repository settings
 2. Enable "Discussions" under Features
 3. Visit [giscus.app](https://giscus.app/)
-4. Enter your repository name (e.g., `username/thefoolhassaid`)
+4. Enter your repository name (e.g., `username/thefoolsays`)
 5. Follow the configuration wizard
 6. Copy the generated values to `.env.local`
 
@@ -95,7 +95,7 @@ If you don't want to set up comments right away, the site will work fine without
 ## Project Structure
 
 ```
-theFoolHasSaid/
+theFoolSays/
 ├── src/
 │   ├── app/                    # Next.js app router pages
 │   │   ├── articles/           # Article list and detail pages
@@ -161,7 +161,7 @@ See the `SANITY_GUIDE.md` file for detailed instructions on:
 
 3. **Configure your domain**
    - In Vercel dashboard, go to Settings > Domains
-   - Add `thefoolhassaid.com`
+   - Add `thefoolsays.com`
    - Follow Vercel's instructions to update your GoDaddy DNS settings
 
 ### Environment Variables for Production

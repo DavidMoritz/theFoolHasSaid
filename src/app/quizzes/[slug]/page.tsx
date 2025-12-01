@@ -42,7 +42,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${quiz.title} | The Fool Has Said`,
+    title: `${quiz.title} | The Fool Says`,
     description: quiz.description || `Test your knowledge with ${quiz.title}`,
   }
 }

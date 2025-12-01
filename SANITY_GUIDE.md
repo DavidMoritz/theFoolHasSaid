@@ -1,6 +1,6 @@
 # Sanity Studio Guide for Content Creators
 
-This guide will help you create and manage content for The Fool Has Said website using the Sanity Studio CMS (Content Management System).
+This guide will help you create and manage content for The Fool Says website using the Sanity Studio CMS (Content Management System).
 
 ## Table of Contents
 
@@ -345,7 +345,7 @@ You would enter **2** as the correct answer (because it's the 3rd item, and coun
 
 ## You're Ready!
 
-You now have everything you need to create compelling content for The Fool Has Said. Start with:
+You now have everything you need to create compelling content for The Fool Says. Start with:
 
 1. ✅ Create your author profile
 2. ✅ Create a few categories
