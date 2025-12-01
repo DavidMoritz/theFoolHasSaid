@@ -2,6 +2,9 @@ import Link from 'next/link'
 import { client } from '@/lib/sanity'
 import { Quiz } from '@/types/sanity'
 
+// Revalidate this page every 60 seconds
+export const revalidate = 60
+
 async function getAllQuizzes() {
   const query = `*[_type == "quiz"] | order(_createdAt desc) {
     _id,

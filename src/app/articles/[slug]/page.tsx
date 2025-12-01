@@ -7,6 +7,9 @@ import Comments from '@/components/Comments'
 import { Metadata } from 'next'
 import Image from 'next/image'
 
+// Revalidate this page every 60 seconds
+export const revalidate = 60
+
 async function getArticle(slug: string) {
   const query = `*[_type == "article" && slug.current == $slug][0] {
     _id,

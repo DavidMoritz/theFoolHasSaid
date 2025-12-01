@@ -5,6 +5,9 @@ import { Quiz } from '@/types/sanity'
 import QuizPlayer from '@/components/QuizPlayer'
 import { Metadata } from 'next'
 
+// Revalidate this page every 60 seconds
+export const revalidate = 60
+
 async function getQuiz(slug: string) {
   const query = `*[_type == "quiz" && slug.current == $slug][0] {
     _id,

@@ -3,6 +3,9 @@ import Image from 'next/image'
 import { client, urlFor } from '@/lib/sanity'
 import { Article } from '@/types/sanity'
 
+// Revalidate this page every 60 seconds
+export const revalidate = 60
+
 async function getAllArticles() {
   const query = `*[_type == "article"] | order(publishedAt desc) {
     _id,
