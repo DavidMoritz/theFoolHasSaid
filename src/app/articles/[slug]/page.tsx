@@ -1,10 +1,11 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { client } from '@/lib/sanity'
+import { client, urlFor } from '@/lib/sanity'
 import { Article } from '@/types/sanity'
 import PortableText from '@/components/PortableText'
 import Comments from '@/components/Comments'
 import { Metadata } from 'next'
+import Image from 'next/image'
 
 async function getArticle(slug: string) {
   const query = `*[_type == "article" && slug.current == $slug][0] {
@@ -108,6 +109,15 @@ export default async function ArticlePage({
 
           {/* Author and Date */}
           <div className="flex items-center gap-4 mb-8 pb-8 border-b border-gray-200">
+            {article.author.image && (
+              <Image
+                src={urlFor(article.author.image).width(64).height(64).url()}
+                alt={article.author.name}
+                width={64}
+                height={64}
+                className="rounded-full"
+              />
+            )}
             <div>
               <div className="font-semibold text-gray-900">{article.author.name}</div>
               <time dateTime={article.publishedAt} className="text-sm text-gray-600">
@@ -119,6 +129,20 @@ export default async function ArticlePage({
               </time>
             </div>
           </div>
+
+          {/* Main Image */}
+          {article.mainImage && (
+            <div className="mb-8">
+              <Image
+                src={urlFor(article.mainImage).width(1200).url()}
+                alt={article.title}
+                width={1200}
+                height={675}
+                className="rounded-lg w-full"
+                priority
+              />
+            </div>
+          )}
 
           {/* Article Body */}
           <div className="prose prose-lg max-w-none">
