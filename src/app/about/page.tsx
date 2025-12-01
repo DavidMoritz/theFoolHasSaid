@@ -14,7 +14,7 @@ export default function AboutPage() {
 
           <div className="prose prose-lg max-w-none">
             <div className="mb-8">
-              <h2 className="text-2xl font-bold mb-4 text-gray-900 small-change-01">Our Mission</h2>
+              <h2 className="text-2xl font-bold mb-4 text-gray-900 small-change-02">Our Mission</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 "The fool says in his heart, 'There is no God.'" - Psalm 14:1
               </p>
